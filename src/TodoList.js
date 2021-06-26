@@ -26,7 +26,7 @@ function CrossButton(props) {
 class TodoList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { todoListItems: [], item: { name: "", url: "" }, currItemName: "" };
+        this.state = { todoListItems: [], item: { name: "", linkSite: "" }, currItemName: "", currItemLink: "" };
     }
     componentDidMount() {
         chrome.storage.local.get(["todoListItems"], (result) => {
@@ -42,22 +42,22 @@ class TodoList extends React.Component {
             return { todoListItems: items };
         });
     }
+
     addItem() {
-        if (!this.state.item) return;
+        if (!this.state.currItemName) return;
         this.setState((prevState) => {
             let items = prevState.todoListItems;
-            var activeTabUrl = "";
-
+            prevState.item.name = prevState.currItemName;
+            console.log(prevState.item.name);
             chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                 // since only one tab should be active and in the current window at once
                 // the return variable should only have one entry
                 var activeTab = tabs[0];
-                activeTabUrl = activeTab.url;
+                prevState.currItemLink = activeTab.url;
             });
-
-            prevState.item.url = activeTabUrl;
-
+            prevState.item.linkSite = prevState.currItemLink;
             items.push(prevState.item);
+            console.log(prevState.item);
 
             chrome.storage.local.set({ todoListItems: items });
             return { todoListItems: items };
@@ -65,9 +65,8 @@ class TodoList extends React.Component {
     }
 
     //link router function - takes user to link
-    open() {
-        var newURL = "http://stackoverflow.com/";
-        chrome.tabs.create({ url: newURL });
+    open(item) {
+        console.log(item);
     }
 
     render() {
@@ -82,8 +81,8 @@ class TodoList extends React.Component {
                             <p>Source list is empty.</p>
                         ) : (
                             this.state.todoListItems.map((l, i) => (
-                                <ListGroup.Item onClick={this.open} key={i}>
-                                    {`${i + 1}) ${l}`}
+                                <ListGroup.Item key={i}>
+                                    {`${i + 1}) ${l.name}`}
                                     <CrossButton itemKey={i} removeItem={this.removeItem.bind(this)} />
                                 </ListGroup.Item>
                             ))
@@ -94,14 +93,14 @@ class TodoList extends React.Component {
                 <div className="card-footer">
                     <InputGroup className="mb-3">
                         <FormControl
-                            value={this.state.name}
+                            value={this.state.currItemName}
                             placeholder="Site Name"
                             aria-label="Site Name"
                             aria-describedby="basic-addon2"
-                            onChange={(e) => this.setState({ name: e.target.value })}
+                            onChange={(e) => this.setState({ currItemName: e.target.value })}
                         />
                         <InputGroup.Append>
-                            <Button disabled={!this.state.name} variant="primary" onClick={this.addItem.bind(this)}>
+                            <Button disabled={!this.state.currItemName} variant="primary" onClick={this.addItem.bind(this)}>
                                 Add
                             </Button>
                         </InputGroup.Append>
