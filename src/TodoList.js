@@ -53,8 +53,8 @@ class TodoList extends React.Component {
                     <InputGroup className="mb-3">
                         <FormControl
                             value={this.state.item}
-                            placeholder="Task Name"
-                            aria-label="Task Name"
+                            placeholder="Site Name"
+                            aria-label="Site Name"
                             aria-describedby="basic-addon2"
                             onChange={e=>this.setState({item:e.target.value})}
                         />
