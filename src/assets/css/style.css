@@ -1,14 +1,16 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
-.todo-list-container{
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap');
+
+.source-list-container{
     min-width: 500px;
 }
-.todo-list{
+.source-list{
     max-height: 400px;
     overflow-y: scroll;
 }
 .card-header{
     background-color: rgba(255, 255, 255, 0.21);
-    border-bottom: 2px solid #3c8dbc;
+    border-bottom: 2px solid #741509;
 }
 
 .card-title{
@@ -16,4 +18,53 @@
     font-size: 18px;
     margin: 0;
     line-height: 1
+}
+
+.card-body {
+    color: rgb(0, 0, 0); 
+    font-weight: 5;
+    font-family: Asap, sans-serif;
+}
+
+
+
+.go-button {
+    background-color: rgb(85, 85, 85);
+    margin-right: 10px;
+    text-align: left;
+}
+
+.go-button:hover {
+    background-color: rgb(70, 70, 70);
+}
+
+.card-header {
+    text-align: center;
+}
+
+.title-icon {
+    height: 80px;
+}
+
+
+.btn-danger{
+    background-color: #741509;
+}
+
+.btn-danger[disabled] {
+    background-color: #9c0500;
+}
+
+.btn-danger:hover {
+    background-color: #6b150a;
+}
+
+.closeButton:hover {
+    color: #6b150a;
+    background-color: white; 
+}
+
+.closeButton{
+    color: #741509;
+    background-color: white;
 }

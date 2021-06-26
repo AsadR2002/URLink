@@ -3,10 +3,10 @@ import 'bootstrap/dist/js/bootstrap.min';
 import './assets/css/style.css';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import TodoList from './TodoList';
+import SourceList from './SourceList';
 
 function App() {
-    return(<TodoList/>)
+    return(<SourceList/>)
 }
 
 ReactDOM.render(
