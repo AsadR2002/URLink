@@ -49,24 +49,21 @@ class SourceList extends React.Component {
         this.setState((prevState) => {
             let items = prevState.todoListItems;
             prevState.item.name = prevState.currItemName;
-            // console.log(prevState.item.name);
+
             chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                 // since only one tab should be active and in the current window at once
                 // the return variable should only have one entry
                 var activeTab = tabs[0];
                 prevState.item.linkSite = activeTab.url;
-                //console.log(prevState.item.linkSite);
                 items.push(prevState.item);
-                //console.log(prevState.item);
             });
-            
-            //console.log(prevState.currItemLink);
+
             chrome.storage.local.set({ todoListItems: items });
             return { todoListItems: items };
         });
     }
 
-    //link router function - takes user to link
+    //link router function - takes user to link in new tab
     open(item) {
         chrome.tabs.create({url: item});
     }
