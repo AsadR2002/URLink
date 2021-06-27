@@ -1,43 +1,13 @@
 # URLink
 
+## About the project
+URLink is a multi-purpose, one-click extension tool that keeps track of websites you want to store temporarily, such as when you are researching for a project, applying to many jobs at once, or online shopping. Users can add as many sites as they want to the extension, and are able to access them regardless of how many (or how few) tabs they have open. When a user clicks on one of the sites they added to the extension, their current tab will automatically redirect to the URL associated with that site. In this way, URLink allows the user to reduce the amount of time spent switching between tasks, so they can spend more time on what really matters.
 
-Todo List Extension
-A simple todo list chrome extension
-![result](http://codementor.tech/wp-content/uploads/2019/07/Screen-Shot-2019-07-18-at-8.24.19-PM.png "result")
+## Inspiration
+As we've begun our university education throughout the past year, we've realized how chaotic, stressful, and tedious online work can be. We wanted to create a multi-purpose resource that would reduce clutter within our workspace, promoting simplicity, efficiency, and ease of access. 
 
-
-# Runing Extension
-
-1. cd into your extension directory
-2. run `npm run watch`
-3. webpack will create `dist` directory inside extension directory with the bundled code and keep watching for code changes
-
-# Add extension to chrome
-
-To test the extension 
-
-1. Open chrome://extensions/ in the chrome browser
+## What it does
+Once a user pins URLink to their browser, they are free to start browsing the web. Once they find a site they think might be useful, they can click on the extension, type in a nickname for the site, and click 'Add'. This adds the site to a list of sites stored inside the extension - it will remain there even if the user navigates to a different site, changes tabs, or reopens the browser. The user is free to click on the "Go" button beside that site name, which will automatically redirect the current tab to its URL. In this way, the user can easily access multiple sites of interest without the clutter of having several tabs open at once. Finally, if the user wants to remove any sites from their list, they can easily delete it by clicking the "X" button.
 
 
-2. Enable developer mode by button on the top right ![Developer Mode](https://lh4.googleusercontent.com/bRQJjstXpYmFXy_mna363Id00Pz8LJ6dDQCebJvJ990v_3WWcEifkCfsQ2HUxKZHM9G5hpmN--ZkqZ3XNDZ12IRYzHt0ClVEHaY3xOxkpRZF5pLpRgE9_R4iSHrrQrOEwCPIKa6V "Developer Mode")
-
-
-3. Click on load unpack button on top left and select the dist folder ![Load unpacked](https://lh6.googleusercontent.com/-fBaT9aWtboCKa70SRuejDkLF-QxAsNRmOklhRaeMGtuVchCBX33pZ5KbiZr09t0xU7oNuWMzwp-eTnBfwSqcWTJG8S30FgzR8_MGMZMve77jmwlYRYoO3wEpXzWv8amInT5QYpT "Load unpacked")
-
-
-4. It will load our chrome extension like this ![extension](https://lh6.googleusercontent.com/G7cS6cLPh83gxAGpt33idJSlB4oqhHr3xx_BLMuRqZU8aCFi35THU0pigrO099LqCbuBszECKYWGrCBxIzuyN5YIwrg8v8wjTWLNupk9i-5jLfCu7vb6KXCraOaGeOFiljUH51hJ "extension")
-
-5. Click on the icon next to the url section and it should render this popup ![result](http://codementor.tech/wp-content/uploads/2019/07/Screen-Shot-2019-07-18-at-8.19.54-PM.png "result")
-
-# Project Structure
-
-* `src` folder contains everything other than boilerplate code
-* `assets` folder contains static assets like css, js files, images and icons
-* `index.html` is the default_popup of chrome extension
-* `App.js` contains the root component, It renders the TodoList component
-* `TodoList.js` contains the TodoList component with all the logic for adding and removing the task from the list
-
-# Demo
-
-[Click here to add TodoList extension to your chrome browser](https://chrome.google.com/webstore/detail/todo-list-chrome-extensio/mpodmjidjogbkfdificcepecjpdaccog) - Please don't forget to give it 5-star rating ;)
 
