@@ -1,59 +1,59 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// Webpack is used as our JavaScript bundler to make our extension easier to render
+
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    mode: 'development',
+    mode: "development",
     entry: {
-        jquery: 'jquery',
-        app: './src/App.js'
+        jquery: "jquery",
+        app: "./src/App.js",
     },
-    devtool: 'inline-source-map',
+    devtool: "inline-source-map",
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Output Management',
-            template:'./src/index.html'
+            title: "Output Management",
+            template: "./src/index.html",
         }),
-        new CopyWebpackPlugin([
-            { from: './src/manifest.json', to:'./', flatten:true },
-            { from: './src/assets/img/icons/*', to:'./', flatten:true }
-        ], {
-            copyUnmodified: true
-        })
+        new CopyWebpackPlugin(
+            [
+                { from: "./src/manifest.json", to: "./", flatten: true },
+                { from: "./src/assets/img/icons/*", to: "./", flatten: true },
+            ],
+            {
+                copyUnmodified: true,
+            }
+        ),
     ],
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        filename: "[name].bundle.js",
+        path: path.resolve(__dirname, "dist"),
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
-                include: path.resolve(__dirname, 'src'),
-                loader: 'babel-loader'
+                include: path.resolve(__dirname, "src"),
+                loader: "babel-loader",
             },
             {
                 test: /\.css$/,
-                include: path.resolve(__dirname, 'src'),
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
+                include: path.resolve(__dirname, "src"),
+                use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                include: path.resolve(__dirname, 'src'),
-                use: [
-                    'file-loader'
-                ]
+                include: path.resolve(__dirname, "src"),
+                use: ["file-loader"],
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
-                include: path.resolve(__dirname, 'src'),
-                use: ['file-loader']
-            }
-        ]
-    }
+                include: path.resolve(__dirname, "src"),
+                use: ["file-loader"],
+            },
+        ],
+    },
 };

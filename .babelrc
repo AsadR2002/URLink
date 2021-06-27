@@ -1,3 +1,5 @@
+// Babel is our JavaScript transpiler
+
 {
-  "presets": ["@babel/preset-react"]
+    "presets": ["@babel/preset-react"]
 }

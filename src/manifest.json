@@ -1,10 +1,10 @@
 {
-    "name": "Todo list chrome extension",
+    "name": "URLink",
     "version": "1.0",
-    "description": "Simple chrome extension with todo list",
+    "description": "Chrome extension to store your links with a single click",
     "permissions": ["storage", "tabs", "webNavigation"],
     "browser_action": {
-        "default_title": "Simple Chrome Extension",
+        "default_title": "URLink",
         "default_popup": "index.html",
         "default_icon": {
             "16": "get_started16.png",
